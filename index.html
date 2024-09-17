@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylee.css">
+    <title>Document</title>
+</head>
+<body>
+    <form id="form">
+        <div class="container">
+            <h2>Registration Form</h2>
+            <div class="contx">
+                <div class="div-name">
+                <label for="name">Name</label>
+                <input required ="text" name="name" placeholder="name" id="name"> 
+                </div>
+                <div class="div-email">
+                    <label for="email">Email</label>
+                    <input required type="email" name="email" placeholder="email" id="email">
+                    </div>
+                <div class="div-pass">
+                <label for="Password">Password</label>
+                <input required type="password" name="password" placeholder="password" id="password">
+                </div> 
+                <div class="div-date">
+                <label for="date">Date of Birth</label>
+                <input min="1967-11-09" required type="date" name="date" id="date">
+                </div>
+                <div class="div-accept">
+                <input  required type="checkbox" name="Accept" id="Accept">
+                <label for="Accept">Accept terms and condition</label>
+                </div>
+                <button type="submit" id="sub-btn">Submint</button>
+            </div>
+        </div>
+    </form>
+    <div class="display-data-container">
+        <h2>Entries</h2>
+        <div class="display-items">
+            <table>
+                <thead>
+                <tr>
+                    <th id="td-name">Name</th>
+                    <th id="td-email">Email</th>
+                    <th id="td-passord">Password</th>
+                    <th id="td-dob">Dob</th>
+                    <th id="td-accept">Accepted terms?</th>
+               
+                </tr>
+            </thead>
+            <tbody id="entriesTableBody">
+               
+            </tbody>
+            </table>
+        
+        </div>
+    
+    </div>
+    
+
+
+    <script src="app.js"></script>
+</body>
+</html>

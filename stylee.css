@@ -1,0 +1,172 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Georgia, serif;
+}
+body{
+    display: grid;
+    place-items: center;
+    background-color: #A3BCF9;
+}
+.container{
+    border: 1px solid black;
+    width: 400px;
+    height: 370px;
+    margin-top: 30px;
+    background-color: #D1D2F9;
+    box-shadow: 19px 20px;
+}
+h2{
+    margin-top: 10px;
+    text-align: center;
+}
+
+.contx{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 20px;
+}
+.contx div{
+    width: 80%;
+    
+}
+.div-name label{
+    margin-left: 13%;
+}
+.div-name input{
+    margin-left: 18%;
+    border-bottom: 2px solid black 0;
+    width: 150px;
+    padding: 4px;
+    border: 2px solid #007BFF ; 
+    border-radius: 8px;
+    background-color: #f0f8ff; 
+    font-size: 16px;
+    color: #333; 
+    outline: none; 
+    
+   
+}
+.div-name input:hover{
+    
+    border-bottom: 2px solid black ;
+   
+}
+.div-pass label{
+    margin-left: 13%;
+}
+.div-pass input{
+    margin-left: 10%;
+    border-bottom: 2px solid black 0;
+    width: 150px;
+    padding: 4px;
+    border: 2px solid #007BFF ; 
+    border-radius: 8px;
+    background-color: #f0f8ff; 
+    font-size: 16px;
+    color: #333; 
+    outline: none;
+
+}
+.div-pass input:hover{
+    
+    border-bottom: 2px solid black ;
+
+}
+.div-email label{
+    margin-left: 13%;
+}
+.div-email input{
+    margin-left: 18%;
+    border-bottom: 2px solid black 0;
+    width: 150px;
+    padding: 4px;
+    border: 2px solid #007BFF ; 
+    border-radius: 8px;
+    background-color: #f0f8ff; 
+    font-size: 16px;
+    color: #333; 
+    outline: none;
+
+}
+.div-email input:hover{
+    
+    border-bottom: 2px solid black ;
+
+}
+.div-date label{
+    margin-left: 13%;
+}
+.div-date input{
+    margin-left: 3%;
+    border-bottom: 2px solid black 0;
+    width: 150px;
+    padding: 4px;
+    border: 2px solid #007BFF ; 
+    border-radius: 8px;
+    background-color: #f0f8ff; 
+    font-size: 16px;
+    color: #333; 
+    outline: none;
+    
+}
+.div-date input:hover{
+  
+    border-bottom: 2px solid black ;
+    
+}
+
+.div-accept input{
+    margin-left: 13%;
+    border: 2px solid black;
+
+}
+.div-accept input{
+    margin-left: 13%;
+    border: 2px solid black;
+    
+
+    
+
+}
+#sub-btn{
+    width: 80px;
+    height: 38px;
+    border-radius: 26%;
+    color: white;
+    background-color: green;
+    border: none;
+    font-weight: 600;
+    font-size: 15px;
+}
+.display-data-container{
+    border: 1px solid black;
+    width: 596px;
+    height: 200px;
+    margin-top: 36px;
+    background-color: #D1D2F9;
+    box-shadow: 8px 9px;
+    overflow: scroll;
+}
+.display-data-container::-webkit-scrollbar {
+    width: 12px; 
+}
+.display-data-container::-webkit-scrollbar:hover {
+    background: #A3BCF9; 
+}
+table{
+    margin-top: 10px;
+    border: 1px solid black;
+    width: 100%;
+   
+    border-spacing: 10px 0;
+    border: none;
+    
+}
+#entriesTableBody{
+    border: 2px solid black;
+}
