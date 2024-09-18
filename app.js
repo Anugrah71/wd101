@@ -39,11 +39,30 @@ const displayEntries = () => {
 const saveUserForm=(event) => {
     event.preventDefault();
     const name=document.getElementById("name").value;
+    const namevalidation=document.getElementById("name");
     const email=document.getElementById("email").value;
     const password=document.getElementById("password").value;
+    const passValidation=document.getElementById("password");
     const dob=document.getElementById("date").value;
     const dobvVlidation=document.getElementById("date");
     const acceptTerms=document.getElementById("Accept").checked;
+    //password validation
+    let pass =password.length;
+
+    
+    if(pass < 8)
+    {
+        passValidation.setCustomValidity("password must be at least 8 characters!");
+        passValidation.reportValidity();
+    }
+    //name validation
+    if(name.length <=1)
+    {
+        namevalidation.setCustomValidity("name must be at least 2 characters");
+        namevalidation.reportValidity();
+
+    }
+    //Age limit validation
     const today = new Date();
     dobString =dob;
     const dobDate = new Date(dobString);
@@ -62,7 +81,7 @@ const saveUserForm=(event) => {
         {
             age--;
         }
-            console.log(age);
+            
             dobvVlidation.setCustomValidity('');
             if(!(age >= 18 && age <= 55))
                 {
