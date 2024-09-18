@@ -43,8 +43,8 @@ const saveUserForm=(event) => {
     const email=document.getElementById("email").value;
     const password=document.getElementById("password").value;
     const passValidation=document.getElementById("password");
-    const dob=document.getElementById("date").value;
-    const dobvVlidation=document.getElementById("date");
+    const dob=document.getElementById("dob").value;
+    const dobvVlidation=document.getElementById("dob");
     const acceptTerms=document.getElementById("Accept").checked;
     //password validation
     let pass =password.length;
