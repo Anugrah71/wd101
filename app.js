@@ -21,8 +21,6 @@ let userEntries =retriveEntries();
 const displayEntries = () => {
     const entries = retriveEntries();
     
-    
-   
     tableBody.innerHTML = "";
 
     entries.forEach((entry) => {
@@ -44,7 +42,35 @@ const saveUserForm=(event) => {
     const email=document.getElementById("email").value;
     const password=document.getElementById("password").value;
     const dob=document.getElementById("date").value;
+    const dobvVlidation=document.getElementById("date");
     const acceptTerms=document.getElementById("Accept").checked;
+    const today = new Date();
+    dobString =dob;
+    const dobDate = new Date(dobString);
+
+    const birthYear = dobDate.getFullYear();
+    const birthMonth = dobDate.getMonth();
+    const birthDay = dobDate.getDate();
+    
+    const currentYear = today.getFullYear();
+    const currentMonth = today.getMonth();
+    const currentDay = today.getDate();
+
+    let age = currentYear - birthYear;
+
+    if (currentMonth < birthMonth || (currentMonth === birthMonth && currentDay < birthDay))
+        {
+        age--;
+        }
+    if(age < 18 || age > 55)
+    {
+        dobvVlidation.setCustomValidity("Age must  be in betweem 18 to 55 years old!");
+        dobvVlidation.reportValidity();
+        return;  
+    } else 
+    {
+        dobvVlidation.setCustomValidity(""); 
+    }
     const entry={
         name,
         email,
