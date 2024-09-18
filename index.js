@@ -54,13 +54,14 @@ const saveUserForm=(event) => {
     {
         passValidation.setCustomValidity("password must be at least 8 characters!");
         passValidation.reportValidity();
+        return;
     }
     //name validation
     if(name.length <=1)
     {
         namevalidation.setCustomValidity("name must be at least 2 characters");
         namevalidation.reportValidity();
-
+        return;
     }
     //Age limit validation
     const today = new Date();
