@@ -30,7 +30,7 @@ const displayEntries = () => {
                 <td>${entry.email}</td>
                 <td>${entry.password}</td>
                 <td>${entry.dob}</td>
-                <td>${entry.acceptTerms ? "Yes" : "No"}</td>
+                <td>${entry.acceptTerms}</td>
             </tr>
         `;
         tableBody.innerHTML += row;
@@ -60,17 +60,20 @@ const saveUserForm=(event) => {
 
     if (currentMonth < birthMonth || (currentMonth === birthMonth && currentDay < birthDay))
         {
-        age--;
+            age--;
         }
-    if(age < 18 || age > 55)
-    {
-        dobvVlidation.setCustomValidity("Age must  be in betweem 18 to 55 years old!");
-        dobvVlidation.reportValidity();
-        return;  
-    } else 
-    {
-        dobvVlidation.setCustomValidity(""); 
-    }
+            console.log(age);
+            dobvVlidation.setCustomValidity('');
+            if(!(age >= 18 && age <= 55))
+                {
+                    dobvVlidation.setCustomValidity("Age must  be in between 18 or 55 year!");
+                    dobvVlidation.reportValidity();
+                    return;
+               
+                }
+            
+        
+    
     const entry={
         name,
         email,
@@ -82,6 +85,7 @@ const saveUserForm=(event) => {
     
     localStorage.setItem('userentries', JSON.stringify(userEntries));
     displayEntries();
+
 }
 document.addEventListener('DOMContentLoaded', displayEntries);
 userForm.addEventListener('submit',saveUserForm);
