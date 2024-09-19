@@ -5,6 +5,11 @@ let tdPassword = document.getElementById("td-password");
 let tdDob = document.getElementById("td-dob");
 let tdAccept = document.getElementById("td-accept");
 const tableBody = document.querySelector("#entriesTableBody");
+// for validation purposes
+const namevalidation = document.getElementById("name");
+const passValidation=document.getElementById("password");
+const dobvVlidation = document.getElementById("dob");
+//end for validation
 const retriveEntries = () => {
   let entries = localStorage.getItem("userentries");
   if (entries) {
@@ -35,75 +40,71 @@ const displayEntries = () => {
   });
 };
 
-document.getElementById("dob").addEventListener("input", function () {
-  const dobInput = document.getElementById("dob");
-  const dobValue = new Date(dobInput.value);
-  const today = new Date();
 
-  const birthYear = dobValue.getFullYear();
-  const birthMonth = dobValue.getMonth();
-  const birthDay = dobValue.getDate();
+document.getElementById('dob').addEventListener('input', function() {
+    const dobvVlidation = document.getElementById('dob');
+    const dobValue = new Date(dobvVlidation.value);
+    const today = new Date();
 
-  const currentYear = today.getFullYear();
-  const currentMonth = today.getMonth();
-  const currentDay = today.getDate();
+    const birthYear = dobValue.getFullYear();
+    const birthMonth = dobValue.getMonth();
+    const birthDay = dobValue.getDate();
 
-  let age = currentYear - birthYear;
+    const currentYear = today.getFullYear();
+    const currentMonth = today.getMonth();
+    const currentDay = today.getDate();
 
-  if (
-    currentMonth < birthMonth ||
-    (currentMonth === birthMonth && currentDay < birthDay)
-  ) {
-    age--;
-  }
+    let age = currentYear - birthYear;
 
-  if (isNaN(age)) {
-    dobInput.setCustomValidity("Please enter a valid date of birth.");
-  } else if (age < 18 || age > 55) {
-    dobInput.setCustomValidity("You must be between 18 and 55 years old.");
-  } else {
-    dobInput.setCustomValidity("");
-  }
+    if (currentMonth < birthMonth ||(currentMonth === birthMonth && currentDay < birthDay)) 
+        {
+        age--;
+      }
+    
+
+    
+    if (isNaN(age)) {
+        dobvVlidation.setCustomValidity("Please enter a valid date of birth.");
+    } else if (age < 18 || age > 55) {
+        dobvVlidation.setCustomValidity("You must be between 18 and 55 years old.");
+    } else {
+        dobvVlidation.setCustomValidity("");
+    }
 });
-document.getElementById("password").addEventListener("input", function () {
-  const passValidation = document.getElementById("password");
-  const password = document.getElementById("password").value;
-  let pass = password.length;
-  if (pass < 8) {
-    passValidation.setCustomValidity("password must be at least 8 characters!");
-  } else {
-    passValidation.setCustomValidity("");
-  }
+document.getElementById('password').addEventListener('input', function() {
+    const password = document.getElementById("password").value;
+    let pass = password.length;
+    if (pass < 8) {
+        passValidation.setCustomValidity("password must be at least 8 characters!");
+        }
+    else{
+        passValidation.setCustomValidity("");
+    }
+
 });
-document.getElementById("password").addEventListener("input", function () {
-  const passValidation = document.getElementById("password");
-  const password = document.getElementById("password").value;
-  let pass = password.length;
-  if (pass < 8) {
-    passValidation.setCustomValidity("password must be at least 8 characters!");
-  } else {
-    passValidation.setCustomValidity("");
-  }
+document.getElementById('password').addEventListener('input', function() {
+    const password = document.getElementById("password").value;
+    let pass = password.length;
+    if (pass < 8) {
+        passValidation.setCustomValidity("password must be at least 8 characters!");
+        }
+    else{
+        passValidation.setCustomValidity("");
+    }
+
 });
-//rer
+
 const saveUserForm = (event) => {
   event.preventDefault();
   const name = document.getElementById("name").value;
-  const namevalidation = document.getElementById("name");
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
-  const passValidation = document.getElementById("password");
   const dob = document.getElementById("dob").value;
-  const dobvVlidation = document.getElementById("dob");
   const acceptTerms = document.getElementById("Accept").checked;
 
-  if (
-    !passValidation.checkValidity() ||
-    !namevalidation.checkValidity() ||
-    !dobvVlidation.checkValidity()
-  ) {
-    return;
-  }
+  if (!passValidation.checkValidity() || !namevalidation.checkValidity() || !dobvVlidation.checkValidity()) {
+    return; 
+}
   const entry = {
     name,
     email,
@@ -115,7 +116,7 @@ const saveUserForm = (event) => {
 
   localStorage.setItem("userentries", JSON.stringify(userEntries));
   displayEntries();
-  document.getElementById("form").reset();
+  document.getElementById("form").reset()
 };
 document.addEventListener("DOMContentLoaded", displayEntries);
 userForm.addEventListener("submit", saveUserForm);
